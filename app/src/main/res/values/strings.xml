@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LaPaPa</string>
+    <string name="action_settings">Ajustes</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Tramites</string>
+    <string name="second_fragment_label">Comisaria Virtual</string>
+    <string name="next">Comisaria Virtual</string>
+    <string name="previous">Cancelar</string>
+
+    <string name="hello_first_fragment">Comienza seleccionando un tramite</string>
+    <string name="hello_second_fragment">Comisaria Virtual</string>
+</resources>

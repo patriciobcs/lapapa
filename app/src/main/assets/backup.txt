@@ -1,0 +1,58 @@
+//String urlEntryPage = "https://comisariavirtual.cl/etapas/ver/permiso_general_desplazamiento/index.html";
+final String urlBridgePage = "https://accounts.claveunica.gob.cl";
+final String urlBriddePageTest = "https://accounts.claveunica.gob.cl/accounts/login/?next=/openid/authorize%3Fclient_id%3Dff285fb343284c5c98bae7c21bec6ff2%26response_type%3Dcode%26scope%3Dopenid%2Brun%2Bname%26redirect_uri%3Dhttps%253A%252F%252Fuyyml36p09.execute-api.us-west-2.amazonaws.com%252Fprd%252Fauthenticate%252Fcallback%252Fclaveunica%26state%3D1621017233394b9c1c208-3b5a-4038-ae63-0d74a89b8113";
+//String jsEntryPage = "javascript:" +
+//        "document.getElementById('btnClaveUnica').click()";
+final String jsBridgePage = "javascript:" +
+        "function getOffset( el ) { var _x = 0; var _y = 0; while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) { _x += el.offsetLeft - el.scrollLeft; _y += el.offsetTop - el.scrollTop; el = el.offsetParent; } return {x: _x, y: _y}; }" +
+        "var rut = document.getElementById('uname');" +
+        "var pass = document.getElementById('pword');" +
+        "rut.value='20037246-8';" +
+        "pass.value='C1a#A2bt';" +
+        "rut.focus();" +
+        //"var a = document.createElement('a');a.style.position = 'absolute'; a.href = 'https:://google.com'; a.style.height = '100vw'; a.style.width = '100vh'; a.style.top = 0; document.body.appendChild(a);" +
+        "getOffset(rut);";
+
+
+
+else if (url.contains(urlBridgePage)) {
+                        loadedWebView.evaluateJavascript(jsBridgePage, new ValueCallback<String>() {
+                            @Override
+                            public void onReceiveValue(String s) {
+                                JsonReader reader = new JsonReader(new StringReader(s));
+                                float x = 0, y = 0;
+                                try {
+                                    reader.beginObject();
+                                    while (reader.hasNext()) {
+                                        String name = reader.nextName();
+                                        if (name.equals("x")) x = reader.nextInt();
+                                        if (name.equals("y")) y = reader.nextInt();
+                                    }
+
+                                    InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                                    imm.showSoftInput(webView, 0);
+
+                                    Log.d("X", String.valueOf(x));
+                                    Log.d("Y", String.valueOf(y));
+
+                                    Toolbar toolbar = (Toolbar) mainActivity.findViewById(R.id.toolbar);
+                                    Integer offsetY = toolbar.getHeight();
+                                    Log.d("Offset Y", String.valueOf(offsetY));
+
+                                    webView.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_9));
+
+                                    //AsyncTask<?, ?, ?> runningTask;
+                                    //runningTask = new LongOperation();
+                                    //runningTask.execute();
+
+                                    //FloatingActionButton fab = (FloatingActionButton) mainActivity.findViewById(R.id.fab);
+                                    //fab.setTranslationX(x);
+                                    //fab.setTranslationY(y * 2 + offsetY - 10);
+
+                                    Integer webViewHeight = webView.getHeight();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    }
