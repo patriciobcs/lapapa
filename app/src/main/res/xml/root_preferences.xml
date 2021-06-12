@@ -1,0 +1,30 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="@string/settings_header">
+
+        <SwitchPreferenceCompat
+            app:key="tts"
+            app:title="@string/settings_tts" />
+
+        <SeekBarPreference
+            app:key="text_size"
+            app:defaultValue="@integer/text_size_default"
+            app:title="Tamaño de Letra"
+            app:min="@integer/text_size_min"
+            android:max="@integer/text_size_max"
+            app:seekBarIncrement="1"
+            app:showSeekBarValue="true"
+             />
+
+        <ListPreference
+            app:defaultValue="simple_form"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="form_type"
+            app:title="Tipo de Toma de Datos"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

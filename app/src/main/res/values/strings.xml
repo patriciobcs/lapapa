@@ -10,4 +10,10 @@
     <string name="hello_first_fragment">Comienza seleccionando un tramite</string>
     <string name="hello_second_fragment">Comisaria Virtual</string>
     <string name="icon_desc">Descripción del ícono</string>
+    <string name="title_activity_settings">Ajustes</string>
+
+    <!-- Preference Titles -->
+    <string name="settings_header">General</string>
+    <string name="settings_tts">Leer textos en pantalla</string>
+
 </resources>
