@@ -1,4 +1,4 @@
-package com.lapapa.app;
+package com.lapapa.app.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.lapapa.app.new_permit.NewPermitMenuActivity;
+import com.lapapa.app.R;
 
 public class Tab1Fragment extends Fragment {
     String[] OPTIONS = {"Permiso Individual de Desplazamiento General","Otros Trámites", "Blablabla"};

@@ -1,4 +1,4 @@
-package com.lapapa.app;
+package com.lapapa.app.get_permit;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.lapapa.app.R;
 import com.lapapa.app.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {

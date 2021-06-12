@@ -35,7 +35,7 @@ else if (url.contains(urlBridgePage)) {
                                     Log.d("X", String.valueOf(x));
                                     Log.d("Y", String.valueOf(y));
 
-                                    Toolbar toolbar = (Toolbar) mainActivity.findViewById(R.id.toolbar);
+                                    Toolbar toolbar = (Toolbar) getPermitActivity.findViewById(R.id.toolbar);
                                     Integer offsetY = toolbar.getHeight();
                                     Log.d("Offset Y", String.valueOf(offsetY));
 
@@ -45,7 +45,7 @@ else if (url.contains(urlBridgePage)) {
                                     //runningTask = new LongOperation();
                                     //runningTask.execute();
 
-                                    //FloatingActionButton fab = (FloatingActionButton) mainActivity.findViewById(R.id.fab);
+                                    //FloatingActionButton fab = (FloatingActionButton) getPermitActivity.findViewById(R.id.fab);
                                     //fab.setTranslationX(x);
                                     //fab.setTranslationY(y * 2 + offsetY - 10);
 

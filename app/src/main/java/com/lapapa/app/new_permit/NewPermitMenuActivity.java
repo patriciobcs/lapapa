@@ -1,10 +1,13 @@
-package com.lapapa.app;
+package com.lapapa.app.new_permit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.lapapa.app.get_permit.GetPermitActivity;
+import com.lapapa.app.R;
 
 public class NewPermitMenuActivity extends AppCompatActivity {
     @Override
@@ -17,7 +20,7 @@ public class NewPermitMenuActivity extends AppCompatActivity {
     }
 
     public void proceedOldData(View view){
-        Intent proceed = new Intent(NewPermitMenuActivity.this, MainActivity.class);
+        Intent proceed = new Intent(NewPermitMenuActivity.this, GetPermitActivity.class);
         startActivity(proceed);
     }
 }

@@ -1,4 +1,4 @@
-package com.lapapa.app;
+package com.lapapa.app.get_permit;
 
 import android.os.Bundle;
 
@@ -17,6 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.lapapa.app.R;
 import com.lapapa.app.databinding.ActivityMainBinding;
 
 import android.view.Menu;
@@ -26,7 +27,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class MainActivity extends AppCompatActivity {
+public class GetPermitActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;

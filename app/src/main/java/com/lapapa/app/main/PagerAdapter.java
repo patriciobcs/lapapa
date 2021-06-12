@@ -1,4 +1,4 @@
-package com.lapapa.app;
+package com.lapapa.app.main;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
