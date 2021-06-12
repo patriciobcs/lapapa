@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_main);
-        final Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar_menu);
         setSupportActionBar(toolbar);
 
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());

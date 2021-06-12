@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Quiere utilizar los datos personales del último permiso?"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="El último permiso fue sacado para:"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JUAN PEREZ MACHUCA"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/same_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Mismos Datos de la vez anterior"
+        android:onClick="proceedOldData"
+        />
+    <Button
+        android:id="@+id/new_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Nuevos Datos"/>
+
+</LinearLayout>
