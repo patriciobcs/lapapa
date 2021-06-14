@@ -32,15 +32,18 @@ public class SecondFragment extends Fragment {
     ) {
         GetPermitActivity getPermitActivity = ((GetPermitActivity) getActivity());
 
-        final String urlEntryPage = "https://comisariavirtual.cl/tramites/iniciar/135.html";
-        final String jsEntryPage = getPermitActivity.getJS("scripts.js");
+        final String urlDisplacementPage = "https://comisariavirtual.cl/tramites/iniciar/135.html";
+        final String jsDisplacementPage = getPermitActivity.getJS("DisplacementPage.js");
+
+        final String urlGetDocumentPage = "https://comisariavirtual.cl/tramites/pdf/index.html";
+        final String jsGetDocumentPage = getPermitActivity.getJS("GetDocumentPage.js");
 
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
         webView = (WebView) view.findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(urlEntryPage);
+        webView.loadUrl(urlDisplacementPage);
         webView.getSettings().setLightTouchEnabled(true);
         webView.requestFocus(View.FOCUS_DOWN|View.FOCUS_UP);
 
@@ -48,12 +51,19 @@ public class SecondFragment extends Fragment {
             public void onPageFinished(WebView loadedWebView, String url) {
                 Log.d("URL", url);
                 if (Build.VERSION.SDK_INT >= 19) {
-                    if (url.contains(urlEntryPage)) {
-                        loadedWebView.evaluateJavascript(jsEntryPage, new ValueCallback<String>() {
+                    if (url.contains(urlDisplacementPage)) {
+                        loadedWebView.evaluateJavascript(jsDisplacementPage, new ValueCallback<String>() {
                             @Override
                             public void onReceiveValue(String s) {
                             }
                         });
+                    } else if (url.contains(urlGetDocumentPage)) {
+                        loadedWebView.evaluateJavascript(jsGetDocumentPage, new ValueCallback<String>() {
+                            @Override
+                            public void onReceiveValue(String s) {
+                            }
+                        });
+
                     }
                 }
             }
@@ -65,7 +75,11 @@ public class SecondFragment extends Fragment {
             public boolean onConsoleMessage(ConsoleMessage consoleMessage)
             {
                 String message = consoleMessage.message();
-                Log.d("Console", String.valueOf(message));
+                Log.d("Console", message);
+                String documentURLLabel = "DOCUMENT-URL ";
+                if (message.contains(documentURLLabel)) {
+                    getPermitActivity.downloadFile(message.replace(documentURLLabel, ""), "DES");
+                }
                 return super.onConsoleMessage(consoleMessage);
             }
         });
@@ -90,5 +104,4 @@ public class SecondFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }
