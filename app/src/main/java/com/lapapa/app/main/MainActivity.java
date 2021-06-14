@@ -39,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
             Intent goToFirstOpen = new Intent(MainActivity.this, StartActivity.class);
             startActivity(goToFirstOpen);
 
-            //TODO QUITAR
-            //getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).edit().putBoolean("isFirstStart", false).commit();
+            getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).edit().putBoolean("isFirstStart", false).commit();
         }
     }
     @Override

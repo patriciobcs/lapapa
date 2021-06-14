@@ -9,15 +9,15 @@ function contains(selector, text) {
 /* function(): complete the HTML form */
 function completeForm(){
     var data = {
-            name: 'Patricio',
-            rut: '20037246-8',
-            code: '514577800',
+            name: 'Javier Mendoza',
+            rut: '20014544-5',
+            code: '110495453',
             age: '22',
-            region: 'Metropolitana de Santiago',
-            comuna: 'Providencia',
-            address: 'Pucara 3693',
+            region: 'Valparaíso',
+            comuna: 'Quilpué',
+            address: 'Pasaje Totoralillo 752',
             destino: 'Tramites',
-            email: 'patricio.calderon@sansano.usm.cl'
+            email: 'javier.mendoza@sansano.usm.cl'
         },
         map = {
             name: {
