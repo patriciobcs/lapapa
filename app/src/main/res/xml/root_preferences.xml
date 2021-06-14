@@ -1,0 +1,29 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="@string/settings_header">
+
+        <SwitchPreferenceCompat
+            app:key="tts"
+            app:title="@string/settings_tts" />
+
+        <ListPreference
+            app:key="text_size"
+            app:entries="@array/textsize_entries"
+            app:entryValues="@array/textsize_values"
+            app:title="Tamaño de Letra"
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="14"
+             />
+
+        <ListPreference
+            app:defaultValue="simple_form"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="form_type"
+            app:title="Tipo de Toma de Datos"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

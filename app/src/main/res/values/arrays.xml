@@ -1,0 +1,28 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Formulario Tradicional</item>
+        <item>Preguntas y Respuestas</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>simple_form</item>
+        <item>qna_form</item>
+    </string-array>
+
+    <string-array name="textsize_entries">
+        <item>Predeterminado de Android</item>
+        <item>Pequeño</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+        <item>Muy Grande</item>
+    </string-array>
+
+    <string-array name="textsize_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>

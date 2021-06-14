@@ -1,4 +1,4 @@
-package com.lapapa.app;
+package com.lapapa.app.get_permit;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.lapapa.app.R;
 import com.lapapa.app.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
@@ -29,10 +30,10 @@ public class SecondFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        MainActivity mainActivity = ((MainActivity) getActivity());
+        GetPermitActivity getPermitActivity = ((GetPermitActivity) getActivity());
 
         final String urlEntryPage = "https://comisariavirtual.cl/tramites/iniciar/135.html";
-        final String jsEntryPage = mainActivity.getJS("scripts.js");
+        final String jsEntryPage = getPermitActivity.getJS("scripts.js");
 
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         View view = binding.getRoot();

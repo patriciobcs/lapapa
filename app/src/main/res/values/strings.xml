@@ -9,4 +9,23 @@
 
     <string name="hello_first_fragment">Comienza seleccionando un tramite</string>
     <string name="hello_second_fragment">Comisaria Virtual</string>
+    <string name="icon_desc">Descripción del ícono</string>
+    <string name="title_activity_settings">Ajustes</string>
+
+    <!-- Preference Titles -->
+    <string name="settings_header">General</string>
+    <string name="settings_tts">Leer textos en pantalla</string>
+
+    <!-- Start Activity -->
+    <string name="start_welcome">Bienvenido!</string>
+    <string name="start_welcome2">Antes de comenzar, necesitamos conocer algunas de tus preferencias para un uso más cómodo de esta aplicación.</string>
+    <string name="start_finish">Gracias!</string>
+    <string name="start_finish2">Eso es todo. Si en algún momento quieres cambiar las preferencias, utiliza la pestaña Ajustes en la esquina superior derecha.</string>
+    <string name="start_btn_in">Comenzar</string>
+    <string name="start_btn_next">Siguiente</string>
+    <string name="start_btn_out">Finalizar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="example_btn_done">Hecho</string>
+
 </resources>
