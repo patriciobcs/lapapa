@@ -7,14 +7,13 @@
             app:key="tts"
             app:title="@string/settings_tts" />
 
-        <SeekBarPreference
+        <ListPreference
             app:key="text_size"
-            app:defaultValue="@integer/text_size_default"
+            app:entries="@array/textsize_entries"
+            app:entryValues="@array/textsize_values"
             app:title="Tamaño de Letra"
-            app:min="@integer/text_size_min"
-            android:max="@integer/text_size_max"
-            app:seekBarIncrement="1"
-            app:showSeekBarValue="true"
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="14"
              />
 
         <ListPreference

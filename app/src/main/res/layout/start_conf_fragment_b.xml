@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/conf_b_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/start_conf"
+        android:gravity="center"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView
+            android:id="@+id/start_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Prefieres rellenar un formulario tradicional o que la aplicación te guíe a través de preguntas?"
+            android:gravity="center"
+            android:layout_marginBottom="100dp"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/start_btn_form"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Formulario Tradicional"/>
+        <Button
+            android:id="@+id/start_btn_qna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Guiar con Preguntas" />
+        <Button
+            android:id="@+id/start_btn_ex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Muéstrame un Ejemplo" />
+    </LinearLayout>
+</FrameLayout>

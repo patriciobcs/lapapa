@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.lapapa.app.R;
+import com.lapapa.app.firstOpen.StartActivity;
 import com.lapapa.app.new_permit.NewPermitMenuActivity;
 import com.lapapa.app.settings.SettingsActivity;
 
@@ -32,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
+
+        Boolean isFirstStart = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).getBoolean("isFirstStart", true);
+        if(isFirstStart){
+            Intent goToFirstOpen = new Intent(MainActivity.this, StartActivity.class);
+            startActivity(goToFirstOpen);
+
+            //TODO QUITAR
+            //getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).edit().putBoolean("isFirstStart", false).commit();
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
