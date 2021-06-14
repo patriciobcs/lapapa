@@ -11,12 +11,13 @@ function completeForm(){
     var data = {
             name: 'Patricio',
             rut: '20037246-8',
-            code: '123232323',
-            age: '12',
-            region: 'Atacama',
-            comuna: 'Huasco',
-            address: 'LaPaPa',
-            destino: 'LaPaPa'
+            code: '514577800',
+            age: '22',
+            region: 'Metropolitana de Santiago',
+            comuna: 'Providencia',
+            address: 'Pucara 3693',
+            destino: 'Tramites',
+            email: 'patricio.calderon@sansano.usm.cl'
         },
         map = {
             name: {
@@ -61,12 +62,16 @@ function completeForm(){
                 type: 'text'
             },
             copia: {
-                id: 'No',
+                id: 'Si',
                 type: 'check'
             },
             declaracion: {
                 id: 'en_caso_de_comprobarse_falsedad_en_la_declaracion_de_la_causal_invocada_para_requerir_el_presente_documento_se_incurrira_en_las_penas_del_art_210_del_codigo_penal',
                 type: 'check'
+            },
+            email: {
+                id: '2404',
+                type: 'text'
             }
         },
         problem = false;

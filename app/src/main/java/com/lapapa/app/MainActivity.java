@@ -1,12 +1,21 @@
 package com.lapapa.app;
 
+import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Environment;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -14,6 +23,7 @@ import android.view.View;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -23,14 +33,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
-
+    private DownloadManager dm;
+    private static final String TAG = "MainActivity";
 
     public String ReadTextFile(String filename) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open(filename)));
@@ -50,6 +64,48 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
             return "";
+        }
+    }
+
+    public void downloadFile(String url, String identificator) {
+        if (TextUtils.isEmpty(url)) {
+            throw new IllegalArgumentException("url cannot be empty or null");
+        }
+
+        MainActivity self = this;
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+        if (isExternalStorageWritable()) {
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            Date date = new Date();
+            String timestamp = formatter.format(date);
+            String filename = identificator + " " + timestamp + ".pdf";
+
+            //Downloads Folder
+            //request.setTitle(filename);
+            //request.setMimeType("application/pdf");
+            //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, filename);
+
+            //External App Folder
+            String uriString = getExternalFilesDir(null) + "";
+            File file = new File(uriString, filename);
+            Log.d("File", file.getPath());
+            Uri destinationUri = Uri.fromFile(file);
+            request.setDestinationUri(destinationUri);
+            dm.enqueue(request);
+            BroadcastReceiver onComplete = new BroadcastReceiver() {
+                public void onReceive(Context ctxt, Intent intent) {
+                    try {
+                        Navigation.findNavController(self, R.id.nav_host_fragment_content_main)
+                                .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                        // TODO: add PDF visualize
+                    } catch (IllegalArgumentException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         }
     }
 
@@ -104,6 +160,9 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
+
+        dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,5 +199,16 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        return Environment.MEDIA_MOUNTED.equals(state);
+    }
+
+    public boolean isExternalStorageReadable() {
+        String state = Environment.getExternalStorageState();
+        return Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 }

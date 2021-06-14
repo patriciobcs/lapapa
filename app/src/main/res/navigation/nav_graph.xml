@@ -25,4 +25,14 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/DocumentFragment"
+        android:name="com.lapapa.app.DocumentFragment"
+        android:label="@string/document_fragment_label"
+        tools:layout="@layout/fragment_document">
+
+        <action
+            android:id="@+id/action_DocumentFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 </navigation>
