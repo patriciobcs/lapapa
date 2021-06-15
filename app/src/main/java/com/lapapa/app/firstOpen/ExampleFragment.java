@@ -54,7 +54,7 @@ public class ExampleFragment extends Fragment {
 
         if (this.step > 0){
             TextView tw = rootView.findViewById(R.id.example_title);
-            tw.setText("La opción 'OPCION 2' Se vería así:");
+            tw.setText(R.string.example_title_b);
 
             nextPage.setText(R.string.example_btn_done);
             nextPage.setOnClickListener(v -> {

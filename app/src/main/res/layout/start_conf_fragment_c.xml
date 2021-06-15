@@ -9,7 +9,7 @@
         android:id="@+id/start_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ajusta el tamaño de la letra al que mejor te acomode."
+        android:text="@string/start_title_c"
         android:gravity="center"
         android:layout_marginBottom="100dp"
         android:layout_marginHorizontal="20dp"
@@ -19,7 +19,7 @@
         android:id="@+id/start_show_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="El texto se verá así: Predeterminado de Android"
+        android:text="@string/start_sizetext_default"
         android:gravity="center"
         android:layout_marginHorizontal="20dp" />
     <SeekBar
@@ -34,5 +34,5 @@
         android:id="@+id/start_btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Continuar" />
+        android:text="@string/start_btn_next" />
 </LinearLayout>

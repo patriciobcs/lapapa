@@ -13,7 +13,7 @@
         android:id="@+id/example_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="La opción 'OPCION 1' Se vería así:"
+        android:text="@string/example_title_a"
         android:textStyle="bold"
         android:textSize="30sp"
         android:layout_marginHorizontal="20dp"
@@ -34,13 +34,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="Volver"/>
+            android:text="@string/start_btn_back"/>
         <Button
             android:id="@+id/example_btn_forward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="Siguiente"/>
+            android:text="@string/start_btn_next"/>
     </LinearLayout>
 
 

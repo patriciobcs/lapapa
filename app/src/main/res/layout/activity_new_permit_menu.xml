@@ -9,14 +9,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿Quiere utilizar los datos personales del último permiso?"
+        android:text="@string/new_permit_title"
         android:textSize="20sp"
         android:gravity="center_horizontal"
         android:textStyle="bold"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="El último permiso fue sacado para:"
+        android:text="@string/new_permit_info"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
         />
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Mismos Datos de la vez anterior"
+        android:text="@string/new_permit_btn_same"
         android:onClick="proceedOldData"
         />
     <Button
@@ -40,6 +40,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Nuevos Datos"/>
+        android:text="@string/new_permit_btn_old"/>
 
 </LinearLayout>

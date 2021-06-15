@@ -23,10 +23,24 @@
     <string name="start_finish">Gracias!</string>
     <string name="start_finish2">Eso es todo. Si en algún momento quieres cambiar las preferencias, utiliza la pestaña Ajustes en la esquina superior derecha.</string>
     <string name="start_btn_in">Comenzar</string>
+    <string name="start_btn_back">Volver</string>
     <string name="start_btn_next">Siguiente</string>
     <string name="start_btn_out">Finalizar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start_btn_form">Formulario Tradicional</string>
+    <string name="start_btn_qna">Guiar con Preguntas</string>
+    <string name="start_btn_ex">Muéstrame un Ejemplo</string>
+    <string name="start_btn_no">NO</string>
+    <string name="start_btn_yes">SI</string>
     <string name="example_btn_done">Hecho</string>
+    <string name="start_sizetext_default">El texto se verá así: Predeterminado de Android</string>
+    <string name="start_title_c">Ajusta el tamaño de la letra al que mejor te acomode.</string>
+    <string name="start_title_b">¿Prefieres rellenar un formulario tradicional o que la aplicación te guíe a través de preguntas?</string>
+    <string name="start_title_a">¿Quieres que el teléfono dicte en voz alta el texto que aparece en pantalla?</string>
+    <string name="new_permit_title">¿Quiere utilizar los datos personales del último permiso?</string>
+    <string name="new_permit_info">El último permiso fue sacado para:</string>
+    <string name="new_permit_btn_same">Mismos Datos de la vez anterior</string>
+    <string name="new_permit_btn_old">Nuevos Datos</string>
+    <string name="example_title_a">La opción \'OPCION 1\' Se vería así:</string>
+    <string name="example_title_b">La opción \'OPCION 2\' Se vería así:</string>
 
 </resources>
