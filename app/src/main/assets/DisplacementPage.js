@@ -156,7 +156,7 @@ function check() {
 async function main() {
     await completeForm();
     if (true) await hideNoCaptcha();
-    if (false) check();
+    if (true) check();
 }
 
 main();
