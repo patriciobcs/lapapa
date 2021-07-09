@@ -26,7 +26,7 @@
         android:id="@+id/start_seekbar"
         android:key="text_size"
         android:progress="0"
-        android:max="4"
+        android:max="2"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_margin="20dp"/>

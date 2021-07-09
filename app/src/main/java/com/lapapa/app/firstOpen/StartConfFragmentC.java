@@ -21,7 +21,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class StartConfFragmentC extends Fragment {
 
     private int step;
-    private String[] OPTION_NAMES = {"Predeterminado de Android", "Pequeño", "Mediano", "Grande", "Muy Grande"};
+    private final String[] OPTION_NAMES = {"Predeterminado de Android", "Grande", "Muy Grande"};
     private TextView exampleText;
 
     public StartConfFragmentC(int step) {
@@ -53,14 +53,15 @@ public class StartConfFragmentC extends Fragment {
         View rootView = inflater.inflate(R.layout.start_conf_fragment_c, container, false);
         Button btnNext = rootView.findViewById(R.id.start_btn_next);
         exampleText = rootView.findViewById(R.id.start_show_text);
-        //TODO SAVE THE VALUE
+
         SeekBar seekBar = rootView.findViewById(R.id.start_seekbar);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            public static final int MODIFIER = 5;
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 String txt = exampleText.getText().toString().split(":")[0];
                 exampleText.setText(txt + ": "+ OPTION_NAMES[progress]);
-                exampleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14 + 3*progress);
+                exampleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14 + MODIFIER*progress);
             }
 
             @Override
@@ -74,7 +75,7 @@ public class StartConfFragmentC extends Fragment {
             }
         });
         btnNext.setOnClickListener(v -> {
-            //TODO
+
             getActivity().getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).edit().putString("text_size", String.valueOf(seekBar.getProgress())).apply();
             FragmentTransaction fragmentTransaction = getActivity()
                     .getSupportFragmentManager().beginTransaction();

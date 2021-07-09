@@ -13,7 +13,7 @@
             app:entryValues="@array/textsize_values"
             app:title="Tamaño de Letra"
             app:useSimpleSummaryProvider="true"
-            app:defaultValue="14"
+            app:defaultValue="0"
              />
 
         <ListPreference

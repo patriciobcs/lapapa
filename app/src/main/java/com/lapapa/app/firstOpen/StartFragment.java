@@ -48,8 +48,13 @@ public class StartFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.start_fragment, container, false);
 
-        Button nextPage = rootView.findViewById(R.id.start_btn);
+        //UPDATE ALL TEXT TO CORRESPOND WITH CONFIGURATION
+        if(getActivity() instanceof StartActivity){
+            ((StartActivity) getActivity()).findViews(rootView);
+        }
 
+
+        Button nextPage = rootView.findViewById(R.id.start_btn);
         if (this.step >= 4){
             TextView tw = rootView.findViewById(R.id.start_title);
             tw.setText(R.string.start_finish);
