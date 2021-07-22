@@ -3,6 +3,7 @@ package com.lapapa.app.new_permit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
@@ -23,6 +24,14 @@ public class NewPermitMenuActivity extends AppCompatActivity {
 
         View rootView = findViewById(android.R.id.content).getRootView();
         findViews(rootView);
+
+        SharedPreferences sharedPref = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE);
+        if(!sharedPref.getBoolean("has_data", false)){
+            Log.d("NewPermit", "No data Found");
+            proceedNewData(findViewById(R.id.same_data));
+        }
+        TextView nombre = findViewById(R.id.same_data_name);
+        nombre.setText(sharedPref.getString("name", "No Data Found"));
     }
 
     public void proceedNewData(View view){

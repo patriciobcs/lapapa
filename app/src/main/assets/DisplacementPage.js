@@ -7,19 +7,8 @@ function contains(selector, text) {
 }
 
 /* function(): complete the HTML form */
-function completeForm(){
-    var data = {
-            name: 'Javier Mendoza',
-            rut: '20014544-5',
-            code: '110495453',
-            age: '22',
-            region: 'Valparaíso',
-            comuna: 'Quilpué',
-            address: 'Pasaje Totoralillo 752',
-            destino: 'Tramites',
-            email: 'javier.mendoza@sansano.usm.cl'
-        },
-        map = {
+function completeForm(data){
+    var map = {
             name: {
                 id: '1897',
                 type: 'text'
@@ -153,10 +142,10 @@ function check() {
 }
 
 /* function(): execute the automatization */
-async function main() {
-    await completeForm();
+async function main(data) {
+    await completeForm(data);
     if (true) await hideNoCaptcha();
     if (true) check();
 }
 
-main();
+

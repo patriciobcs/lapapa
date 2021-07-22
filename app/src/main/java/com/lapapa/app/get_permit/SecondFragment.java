@@ -1,5 +1,7 @@
 package com.lapapa.app.get_permit;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,13 +33,26 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         GetPermitActivity getPermitActivity = ((GetPermitActivity) getActivity());
+        String data;
+        SharedPreferences sharedPref = getActivity().getSharedPreferences("com.lapapa.app_preferences", Context.MODE_PRIVATE);
+        data = "{"
+                + "name: '" + sharedPref.getString("name", "Javier Mendoza") + "',"
+                + "rut: '" + sharedPref.getString("rut", "20014544-5") + "',"
+                + "code: '" + sharedPref.getString("code", "110495453") + "',"
+                + "age: '" + sharedPref.getString("age", "22") + "',"
+                + "region: '" + sharedPref.getString("region", "Valparaíso") + "',"
+                + "comuna: '" + sharedPref.getString("comuna", "Quilpué") + "',"
+                + "address: '" + sharedPref.getString("address", "Pasaje Totoralillo 752") + "',"
+                + "destino: '" + sharedPref.getString("destino", "Tramites") + "',"
+                + "email: '" + sharedPref.getString("email", "javier.mendoza@sansano.usm.cl") + "'}";
+
 
         final String urlDisplacementPage = "https://comisariavirtual.cl/tramites/iniciar/135.html";
-        final String jsDisplacementPage = getPermitActivity.getJS("DisplacementPage.js");
+        final String jsDisplacementPage = getPermitActivity.getJS("DisplacementPage.js") + "main("+ data + ");";;
 
         final String urlGetDocumentPage = "https://comisariavirtual.cl/tramites/pdf/index.html";
         final String jsGetDocumentPage = getPermitActivity.getJS("GetDocumentPage.js");
-
+        Log.d("SecondFragment", jsDisplacementPage.substring(jsDisplacementPage.length()- 100, jsDisplacementPage.length()));
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
