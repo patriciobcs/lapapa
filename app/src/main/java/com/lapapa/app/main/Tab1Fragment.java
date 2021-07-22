@@ -46,13 +46,6 @@ public class Tab1Fragment extends Fragment {
                 startActivity(proceedToDataOptions);
             }
         });
-
-        //TODO DOESNT WORK
-        //UPDATE ALL TEXT TO CORRESPOND WITH CONFIGURATION
-        if(getActivity() instanceof MainActivity){
-            Log.d("Tab1Fragment", "Updating Text");
-            ((MainActivity) getActivity()).findViews(rootView);
-        }
         return rootView;
     }
 

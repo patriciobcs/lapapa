@@ -84,12 +84,6 @@ public class Tab2Fragment extends Fragment {
             }
         });
 
-        //TODO DOESNT WORK
-        //UPDATE ALL TEXT TO CORRESPOND WITH CONFIGURATION
-        if(getActivity() instanceof MainActivity){
-            ((MainActivity) getActivity()).findViews(rootView);
-        }
-
         return rootView;
     }
 }

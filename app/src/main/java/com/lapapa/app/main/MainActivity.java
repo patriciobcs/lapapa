@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-        Boolean isFirstStart = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).getBoolean("isFirstStart", true);
+        boolean isFirstStart = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).getBoolean("isFirstStart", true);
         if(isFirstStart){
             Intent goToFirstOpen = new Intent(MainActivity.this, StartActivity.class);
             startActivity(goToFirstOpen);
@@ -69,31 +69,6 @@ public class MainActivity extends AppCompatActivity {
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
-        }
-    }
-
-    //TODO DOESNT WORK
-    public void findViews(View v) {
-        try {
-            if (v instanceof ViewGroup) {
-                ViewGroup vg = (ViewGroup) v;
-                for (int i = 0; i < vg.getChildCount(); i++) {
-                    View child = vg.getChildAt(i);
-                    // recursively call this method
-                    findViews(child);
-                }
-            } else if (v instanceof TextView) {
-                //do whatever you want ...
-                String textSize = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).getString("text_size", "0");
-                int textModifier = Integer.parseInt(textSize)*MODIFIER;
-                TextView tv = ((TextView)v);
-                float sp = tv.getTextSize() / getResources().getDisplayMetrics().scaledDensity;
-                Log.d("findViews", "Found TV with text "+ tv.getText() + " and text size " + sp);
-                Log.d("findViews", "Adding up "+ textModifier);
-                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,sp + textModifier);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
