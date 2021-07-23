@@ -38,6 +38,7 @@
         />
     <Button
         android:id="@+id/new_data"
+        android:onClick="proceedNewData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"

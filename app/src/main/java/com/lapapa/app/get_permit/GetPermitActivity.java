@@ -23,7 +23,6 @@ import android.view.View;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -101,7 +100,7 @@ public class GetPermitActivity extends AppCompatActivity {
                     try {
                         Navigation.findNavController(self, R.id.nav_host_fragment_content_main)
                                 .navigate(R.id.action_SecondFragment_to_FirstFragment);
-                        // TODO: add PDF visualize
+
                     } catch (IllegalArgumentException e) {
                         e.printStackTrace();
                     }
@@ -109,6 +108,9 @@ public class GetPermitActivity extends AppCompatActivity {
             };
             registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         }
+        Intent goBackToMenu =  new Intent(GetPermitActivity.this, MainActivity.class);
+        goBackToMenu.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(goBackToMenu);
     }
 
     // Possible Utilization CA
@@ -150,6 +152,14 @@ public class GetPermitActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        Intent goBackToMenu =  new Intent(GetPermitActivity.this, MainActivity.class);
+        goBackToMenu.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(goBackToMenu);
+        //super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -177,7 +187,7 @@ public class GetPermitActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 

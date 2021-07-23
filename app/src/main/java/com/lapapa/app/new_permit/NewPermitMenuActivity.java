@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.lapapa.app.chatBotForm.ChatBotMainActivity;
 import com.lapapa.app.get_permit.GetPermitActivity;
 import com.lapapa.app.R;
 
@@ -35,6 +36,16 @@ public class NewPermitMenuActivity extends AppCompatActivity {
     }
 
     public void proceedNewData(View view){
+        SharedPreferences sharedPref = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE);
+        Log.d("proceedNewData", sharedPref.getString("form_type", "simple_form"));
+        if(sharedPref.getString("form_type", "simple_form").equals("qna_form")){
+            Intent proceed = new Intent(NewPermitMenuActivity.this, ChatBotMainActivity.class);
+            startActivity(proceed);
+        }
+        else {
+            //Intent proceed = new Intent(NewPermitMenuActivity.this, chatBotMainActivity.class);
+            //startActivity(proceed);
+        }
     }
 
     public void proceedOldData(View view){

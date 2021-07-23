@@ -36,6 +36,9 @@
             android:name=".get_permit.GetPermitActivity"
             android:theme="@style/Theme.LaPaPa.NoActionBar" />
         <activity
+            android:name=".chatBotForm.ChatBotMainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.LaPaPa.NoActionBar">

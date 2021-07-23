@@ -52,7 +52,7 @@ public class SecondFragment extends Fragment {
 
         final String urlGetDocumentPage = "https://comisariavirtual.cl/tramites/pdf/index.html";
         final String jsGetDocumentPage = getPermitActivity.getJS("GetDocumentPage.js");
-        Log.d("SecondFragment", jsDisplacementPage.substring(jsDisplacementPage.length()- 100, jsDisplacementPage.length()));
+        Log.d("SecondFragment", jsDisplacementPage.substring(jsDisplacementPage.length()- 200, jsDisplacementPage.length()));
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
