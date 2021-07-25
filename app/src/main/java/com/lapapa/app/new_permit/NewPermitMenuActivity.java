@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lapapa.app.chatBotForm.ChatBotMainActivity;
-import com.lapapa.app.get_permit.GetPermitActivity;
+import com.lapapa.app.get_permit_v2.GetPermitActivity;
 import com.lapapa.app.R;
 
 public class NewPermitMenuActivity extends AppCompatActivity {

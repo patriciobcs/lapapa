@@ -9,9 +9,11 @@ import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -30,13 +32,16 @@ import com.google.cloud.dialogflow.v2.SessionsClient;
 import com.google.cloud.dialogflow.v2.SessionsSettings;
 import com.google.cloud.dialogflow.v2.TextInput;
 import com.lapapa.app.R;
-import com.lapapa.app.get_permit.GetPermitActivity;
+import com.lapapa.app.firstOpen.StartActivity;
+import com.lapapa.app.get_permit_v2.GetPermitActivity;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
+
+import static com.lapapa.app.main.MainActivity.MODIFIER;
 
 public class ChatBotMainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
     private static final String TAG = ChatBotMainActivity.class.getSimpleName();
@@ -110,6 +115,9 @@ public class ChatBotMainActivity extends AppCompatActivity implements TextToSpee
         dataFields.add(new Field("destino", "a dónde se dirige, o qué va a hacer. Si no sabe qué poner, basta con que escriba \"Trámites\"", "text"));
 
         enableTextToSpeech = getSharedPreferences("com.lapapa.app_preferences", Context.MODE_PRIVATE).getBoolean("tts", false);
+
+        View view = findViewById(android.R.id.content).getRootView();
+        findViews(view);
 
         if (enableTextToSpeech) textToSpeech = new TextToSpeech(this, this);
         else requestEmptyData();
@@ -204,6 +212,12 @@ public class ChatBotMainActivity extends AppCompatActivity implements TextToSpee
         chatLayout.addView(layout);
         TextView tv = layout.findViewById(R.id.chatMsg);
         tv.setText(message);
+
+        String textSize = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).getString("text_size", "0");
+        int textModifier = Integer.parseInt(textSize)*MODIFIER;
+        float sp = tv.getTextSize() / getResources().getDisplayMetrics().scaledDensity;
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,sp + textModifier);
+
         layout.requestFocus();
         queryEditText.requestFocus();
         if (enableTextToSpeech) textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH,null, null);
@@ -270,6 +284,33 @@ public class ChatBotMainActivity extends AppCompatActivity implements TextToSpee
                     startActivity(proceed);
                 }
             }, 4000);
+        }
+    }
+
+    public void findViews(View v) {
+        try {
+            if (v instanceof ViewGroup) {
+                ViewGroup vg = (ViewGroup) v;
+                for (int i = 0; i < vg.getChildCount(); i++) {
+                    View child = vg.getChildAt(i);
+                    // recursively call this method
+                    findViews(child);
+                }
+            } else if (v instanceof TextView) {
+                //do whatever you want ...
+                String textSize = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).getString("text_size", "0");
+                int textModifier = Integer.parseInt(textSize)*MODIFIER;
+                TextView tv = ((TextView)v);
+                if(tv.getText().equals("LaPaPa")){
+                    return;
+                }
+                float sp = tv.getTextSize() / getResources().getDisplayMetrics().scaledDensity;
+                Log.d("findViews", "Found TV with text "+ tv.getText() + " and text size " + sp);
+                Log.d("findViews", "Adding up "+ textModifier);
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,sp + textModifier);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
