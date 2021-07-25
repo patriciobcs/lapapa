@@ -8,6 +8,7 @@ function contains(selector, text) {
 
 /* function(): complete the HTML form */
 function completeForm(data){
+    console.log(JSON.stringify(data));
     var map = {
             name: {
                 id: '1897',
@@ -66,6 +67,7 @@ function completeForm(data){
         problem = false;
 
     for (const key in map) {
+        console.log("key:" + key);
         if (problem) break;
         var evaluate = function () {problem = true};
         if (map[key].type == 'text') {
@@ -138,13 +140,16 @@ function check() {
         setTimeout(check, 50);
         return;
     }
+    console.log("Clicking Button...");
     document.getElementsByTagName('button')[1].click();
 }
 
 /* function(): execute the automatization */
 async function main(data) {
+    console.log("iniciated");
     await completeForm(data);
-    if (true) await hideNoCaptcha();
+    console.log("form completed");
+    /*if (true) await hideNoCaptcha();*/
     if (true) check();
 }
 

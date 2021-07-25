@@ -2,10 +2,6 @@ package com.lapapa.app.get_permit_v2;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
@@ -21,19 +17,15 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.ConsoleMessage;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.lapapa.app.R;
-import com.lapapa.app.databinding.ActivityMainBinding;
-import com.lapapa.app.databinding.FragmentSecondBinding;
 import com.lapapa.app.main.MainActivity;
 
 import java.io.BufferedReader;
@@ -75,7 +67,7 @@ public class GetPermitActivity extends AppCompatActivity {
 
         final String urlGetDocumentPage = "https://comisariavirtual.cl/tramites/pdf/index.html";
         final String jsGetDocumentPage = getJS("GetDocumentPage.js");
-        Log.d(TAG, jsDisplacementPage.substring(jsDisplacementPage.length()- 200, jsDisplacementPage.length()));
+        Log.d(TAG, jsDisplacementPage.substring(jsDisplacementPage.length()- 210, jsDisplacementPage.length()));
 
         webView = (WebView) findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
@@ -88,12 +80,14 @@ public class GetPermitActivity extends AppCompatActivity {
                 Log.d("URL", url);
                 if (Build.VERSION.SDK_INT >= 19) {
                     if (url.contains(urlDisplacementPage)) {
+                        Log.d(TAG, "Evaluating JS Displacement...");
                         loadedWebView.evaluateJavascript(jsDisplacementPage, new ValueCallback<String>() {
                             @Override
                             public void onReceiveValue(String s) {
                             }
                         });
                     } else if (url.contains(urlGetDocumentPage)) {
+                        Log.d(TAG, "Evaluating JS Get Document...");
                         loadedWebView.evaluateJavascript(jsGetDocumentPage, new ValueCallback<String>() {
                             @Override
                             public void onReceiveValue(String s) {
@@ -103,6 +97,18 @@ public class GetPermitActivity extends AppCompatActivity {
                     }
                 }
             }
+            /*
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request){
+                String url = request.getUrl().toString();
+                // do your handling codes here, which url is the requested url
+                // probably you need to open that url rather than redirect:
+                Log.d(TAG, "newURL:" + url);
+                if (url.contains(urlGetDocumentPage)) {
+                    view.loadUrl(url);
+                    return false; // then it is not handled by default action
+                }
+                return false;
+            }*/
         });
 
         webView.setWebChromeClient(new WebChromeClient()
@@ -172,13 +178,6 @@ public class GetPermitActivity extends AppCompatActivity {
             dm.enqueue(request);
             BroadcastReceiver onComplete = new BroadcastReceiver() {
                 public void onReceive(Context ctx, Intent intent) {
-                    try {
-                        Navigation.findNavController(self, R.id.nav_host_fragment_content_main)
-                                .navigate(R.id.action_SecondFragment_to_FirstFragment);
-
-                    } catch (IllegalArgumentException e) {
-                        e.printStackTrace();
-                    }
                 }
             };
             registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
