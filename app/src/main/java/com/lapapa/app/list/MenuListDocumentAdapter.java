@@ -10,12 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.lapapa.app.R;
-import com.lapapa.app.main.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +22,11 @@ import static android.content.Context.MODE_PRIVATE;
 import static com.lapapa.app.main.MainActivity.MODIFIER;
 
 
-public class MenuListAdapter extends ArrayAdapter<ListItem> {
+public class MenuListDocumentAdapter extends ArrayAdapter<ListDocumentItem> {
     private Context context;
-    private List<ListItem> itemList = new ArrayList<>();
+    private List<ListDocumentItem> itemList = new ArrayList<>();
 
-    public MenuListAdapter(@NonNull Context context, ArrayList<ListItem> list) {
+    public MenuListDocumentAdapter(@NonNull Context context, ArrayList<ListDocumentItem> list) {
         super(context, 0, list);
         this.context = context;
         this.itemList = list;
@@ -39,15 +37,14 @@ public class MenuListAdapter extends ArrayAdapter<ListItem> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItem = convertView;
         if(listItem == null){
-            listItem = LayoutInflater.from(context).inflate(R.layout.menu_item, parent, false);
+            listItem = LayoutInflater.from(context).inflate(R.layout.menu_item_document, parent, false);
         }
-        ListItem li = itemList.get(position);
+        ListDocumentItem li = itemList.get(position);
 
-        ImageView img = (ImageView) listItem.findViewById(R.id.menu_item_img);
-        img.setImageResource(li.getIcon());
-
-        TextView tv = (TextView) listItem.findViewById(R.id.menu_item_text);
-        tv.setText(li.getDescription());
+        TextView tv_name = (TextView) listItem.findViewById(R.id.menu_item_name);
+        tv_name.setText(li.getName());
+        TextView tv_date = (TextView) listItem.findViewById(R.id.menu_item_date);
+        tv_date.setText(li.getDate());
 
         findViews(listItem);
 

@@ -7,19 +7,9 @@ function contains(selector, text) {
 }
 
 /* function(): complete the HTML form */
-function completeForm(){
-    var data = {
-            name: 'Javier Mendoza',
-            rut: '20014544-5',
-            code: '110495453',
-            age: '22',
-            region: 'Valparaíso',
-            comuna: 'Quilpué',
-            address: 'Pasaje Totoralillo 752',
-            destino: 'Tramites',
-            email: 'javier.mendoza@sansano.usm.cl'
-        },
-        map = {
+function completeForm(data){
+    console.log(JSON.stringify(data));
+    var map = {
             name: {
                 id: '1897',
                 type: 'text'
@@ -77,6 +67,7 @@ function completeForm(){
         problem = false;
 
     for (const key in map) {
+        console.log("key:" + key);
         if (problem) break;
         var evaluate = function () {problem = true};
         if (map[key].type == 'text') {
@@ -149,14 +140,17 @@ function check() {
         setTimeout(check, 50);
         return;
     }
+    console.log("Clicking Button...");
     document.getElementsByTagName('button')[1].click();
 }
 
 /* function(): execute the automatization */
-async function main() {
-    await completeForm();
-    if (true) await hideNoCaptcha();
-    if (false) check();
+async function main(data) {
+    console.log("iniciated");
+    await completeForm(data);
+    console.log("form completed");
+    /*if (true) await hideNoCaptcha();*/
+    if (true) check();
 }
 
-main();
+

@@ -2,8 +2,13 @@ package com.lapapa.app.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -17,6 +22,7 @@ import com.lapapa.app.new_permit.NewPermitMenuActivity;
 import com.lapapa.app.settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
+    public static final int MODIFIER = 5;
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
@@ -34,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-        Boolean isFirstStart = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).getBoolean("isFirstStart", true);
+        boolean isFirstStart = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE).getBoolean("isFirstStart", true);
         if(isFirstStart){
             Intent goToFirstOpen = new Intent(MainActivity.this, StartActivity.class);
             startActivity(goToFirstOpen);

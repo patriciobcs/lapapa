@@ -2,6 +2,7 @@ package com.lapapa.app.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.lapapa.app.firstOpen.StartActivity;
 import com.lapapa.app.list.ListItem;
 import com.lapapa.app.list.MenuListAdapter;
 import com.lapapa.app.new_permit.NewPermitMenuActivity;
@@ -44,7 +46,6 @@ public class Tab1Fragment extends Fragment {
                 startActivity(proceedToDataOptions);
             }
         });
-
         return rootView;
     }
 

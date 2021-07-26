@@ -21,6 +21,7 @@
         android:textSize="20sp"
         />
     <TextView
+        android:id="@+id/same_data_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="JUAN PEREZ MACHUCA"
@@ -37,6 +38,7 @@
         />
     <Button
         android:id="@+id/new_data"
+        android:onClick="proceedNewData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
