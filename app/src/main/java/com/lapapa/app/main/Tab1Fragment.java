@@ -24,7 +24,7 @@ import com.lapapa.app.R;
 import java.util.ArrayList;
 
 public class Tab1Fragment extends Fragment {
-    String[] OPTIONS = {"Permiso Individual de Desplazamiento General","Otros Trámites", "Blablabla"};
+    String[] OPTIONS = {"Permiso Individual de Desplazamiento General"};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class Tab1Fragment extends Fragment {
         //ArrayAdapter adapter = new ArrayAdapter(this.getActivity(), R.layout.menu_item_simple, OPTIONS);
         ArrayList<ListItem> optionsList = new ArrayList<>();
         for (String op: OPTIONS){
-            optionsList.add(new ListItem(R.mipmap.ic_launcher, op));
+            optionsList.add(new ListItem(R.drawable.ic_baseline_assignment_turned_in_24, op));
         }
         MenuListAdapter adapter = new MenuListAdapter(this.getActivity(), optionsList);
         lv.setAdapter(adapter);
