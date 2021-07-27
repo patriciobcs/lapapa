@@ -232,7 +232,7 @@ public class ChatBotMainActivity extends AppCompatActivity implements TextToSpee
 
         layout.requestFocus();
         queryEditText.requestFocus();
-        if (enableTextToSpeech) textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH,null, null);
+        if (enableTextToSpeech && type == BOT) textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH,null, null);
     }
 
     FrameLayout getUserLayout() {
