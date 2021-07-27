@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/scroller"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/coordinatorLayout"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".StandardForm"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:layout_weight="0"
+            style="@style/TextAppearance.MaterialComponents.Headline4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Información básica" />
+        <TextView
+            android:layout_weight="0"
+            android:layout_marginBottom="8dp"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Para poder agilizar tus trámites, requerimos un mínimo de información. Dichos campos sólo serán guardados en tu móvil." />
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nombre completo"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            android:layout_marginBottom="16dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullname"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="run sin dígito verificador"
+            app:startIconDrawable="@drawable/ic_baseline_fingerprint_24"
+            android:layout_marginBottom="16dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/run"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="número de serie de la cédula"
+            app:startIconDrawable="@drawable/ic_baseline_sim_card_24"
+            android:layout_marginBottom="16dp"
+            app:helperTextEnabled="true"
+            app:helperText="Situado en la cara posterior o frontal de tu cédula"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/serialNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="fecha de nacimiento"
+            app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
+            android:layout_marginBottom="16dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/birthDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="región"
+            app:startIconDrawable="@drawable/ic_baseline_terrain_24"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            >
+            <AutoCompleteTextView
+                android:id="@+id/regions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:textColor="#000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="comuna"
+            app:startIconDrawable="@drawable/ic_baseline_nature_people_24"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            >
+            <AutoCompleteTextView
+                android:id="@+id/communes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:textColor="#000"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="calle, pasaje o avenida"
+            app:startIconDrawable="@drawable/ic_baseline_edit_road_24"
+            android:layout_marginBottom="16dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/street"
+                android:inputType="textPostalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:hint="número del condominio, block o casa"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_home_24"
+            android:layout_marginBottom="16dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/homeNumber"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="número de departamento"
+            app:startIconDrawable="@drawable/ic_baseline_apartment_24"
+            android:layout_marginBottom="16dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/apartmentNumber"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="correo electrónico"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            android:layout_marginBottom="16dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="lugar de destino"
+            app:startIconDrawable="@drawable/ic_baseline_place_24"
+            android:layout_marginBottom="16dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/destination"
+                android:inputType="textPostalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/saveBasicInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="guardar información"
+            />
+    </LinearLayout>
+</ScrollView>

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.lapapa.app.chatBotForm.ChatBotMainActivity;
 import com.lapapa.app.get_permit_v2.GetPermitActivity;
 import com.lapapa.app.R;
+import com.lapapa.app.simpleForm.SimpleForm;
 
 public class NewPermitMenuActivity extends AppCompatActivity {
     public static final int MODIFIER = 5;
@@ -43,8 +44,8 @@ public class NewPermitMenuActivity extends AppCompatActivity {
             startActivity(proceed);
         }
         else {
-            //Intent proceed = new Intent(NewPermitMenuActivity.this, chatBotMainActivity.class);
-            //startActivity(proceed);
+            Intent proceed = new Intent(NewPermitMenuActivity.this, SimpleForm.class);
+            startActivity(proceed);
         }
     }
 

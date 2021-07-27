@@ -42,5 +42,8 @@
     <string name="new_permit_btn_old">Nuevos Datos</string>
     <string name="example_title_a">La opción \'OPCION 1\' Se vería así:</string>
     <string name="example_title_b">La opción \'OPCION 2\' Se vería así:</string>
+    <string name="title_activity_simple_form">SimpleForm</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

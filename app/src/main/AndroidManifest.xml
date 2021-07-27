@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LaPaPa">
-        <activity android:name=".get_permit_v2.GetPermitActivity"></activity>
+        <activity android:name=".simpleForm.SimpleForm"></activity>
+        <activity android:name=".get_permit_v2.GetPermitActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
