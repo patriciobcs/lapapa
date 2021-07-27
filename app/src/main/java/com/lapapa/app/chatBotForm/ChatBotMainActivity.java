@@ -41,6 +41,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
+import static com.lapapa.app.chatBotForm.Validator.obtainStringFromKeywords;
 import static com.lapapa.app.main.MainActivity.MODIFIER;
 
 public class ChatBotMainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
@@ -60,6 +61,8 @@ public class ChatBotMainActivity extends AppCompatActivity implements TextToSpee
 
     public boolean enableTextToSpeech = true;
     TextToSpeech textToSpeech;
+
+    private String regionSelected = "";
 
     @Override
     public void onInit(int i) {
@@ -108,9 +111,9 @@ public class ChatBotMainActivity extends AppCompatActivity implements TextToSpee
         dataFields.add(new Field("email", "su correo electrónico", "mail"));
         dataFields.add(new Field("rut", "su RUT, sin puntos y con guión antes del dígito verificador", "rut"));
         dataFields.add(new Field("age", "su edad", "age"));
-        dataFields.add(new Field("code", "su código de carnet", "text"));
-        dataFields.add(new Field("region", "su región", "text"));
-        dataFields.add(new Field("comuna", "su comuna", "text"));
+        dataFields.add(new Field("code", "su código de carnet, sin puntos", "code"));
+        dataFields.add(new Field("region", "su región", "region"));
+        dataFields.add(new Field("comuna", "su comuna", "comuna"));
         dataFields.add(new Field("address", "su dirección", "text"));
         dataFields.add(new Field("destino", "a dónde se dirige, o qué va a hacer. Si no sabe qué poner, basta con que escriba \"Trámites\"", "text"));
 
@@ -148,7 +151,16 @@ public class ChatBotMainActivity extends AppCompatActivity implements TextToSpee
 
             if (this.fieldIndex != -1) {
                 Field field = this.dataFields.get(fieldIndex);
-                if (Validator.validate(msg, field.type)) {
+                if(field.id.equals("region")){
+                    msg = obtainStringFromKeywords(msg, Validator.SmartCompareMode.COMPARE_REGION, regionSelected);
+                }
+                if(field.id.equals("comuna")){
+                    msg = obtainStringFromKeywords(msg, Validator.SmartCompareMode.COMPARE_COMUNA, regionSelected);
+                }
+                if (Validator.validate(msg, field.type, regionSelected)) {
+                    if(field.id.equals("region")){
+                        regionSelected = msg;
+                    }
                     field.value = msg;
                     this.fieldIndex = -1;
                     requestEmptyData();

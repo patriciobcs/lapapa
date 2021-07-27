@@ -149,7 +149,7 @@ async function main(data) {
     console.log("iniciated");
     await completeForm(data);
     console.log("form completed");
-    /*if (true) await hideNoCaptcha();*/
+    if (true) await hideNoCaptcha();
     if (true) check();
 }
 
