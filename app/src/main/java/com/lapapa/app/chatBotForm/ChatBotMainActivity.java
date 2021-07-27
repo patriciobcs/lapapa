@@ -268,7 +268,7 @@ public class ChatBotMainActivity extends AppCompatActivity implements TextToSpee
             showTextViewWrapper("Por favor ingrese " + field.name, BOT);
             this.fieldIndex = fieldIndex;
         } else {
-            showTextViewWrapper("Gracias, el tramite comenzará enseguida", BOT);
+            showTextViewWrapper("Gracias, el trámite comenzará enseguida", BOT);
 
             SharedPreferences sharedPref = getSharedPreferences("com.lapapa.app_preferences", MODE_PRIVATE);
             SharedPreferences.Editor ed = sharedPref.edit();
